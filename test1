@@ -1,1 +1,5 @@
-
+git init
+git add .
+git commit -m "test: automated 990 Schedule A pull vs manual review"
+git remote add origin <"C:\Users\pff_tle\Downloads\990-pull-test.zip">
+git push -u origin main
