@@ -77,7 +77,7 @@ The script reads `Organization Name` and `EIN` directly — no name-matching or 
 python 990_scrape_and_xml_pull.py
 ```
 
-Processes every row in the input file and writes `990_public_support_results_v2.xlsx` with columns:
+Processes every row in the input file and writes `990_public_support_results.xlsx` with columns:
 
 ```
 Company Name | EIN | Most Recent Filing Year | Total Revenue | Total Public Support |
@@ -89,7 +89,7 @@ Formatting:
 - Bold header row, frozen
 - **Below 33.33% Threshold** cell: red if under 33.33%, green if at/above, uncolored if undetermined (check the Notes column)
 
-Progress prints per organization as it runs; a summary at the end reports how many orgs got a complete Public Support Percentage vs. how many need manual review.
+The pipeline selects the newest fiscal-year filing listed on the live ProPublica organization page, then reads Schedule A values from that filing's IRS XML. If XML access is blocked or the filing does not contain Part II Line 14, the percentage remains blank and the Notes column explains why.
 
 ---
 
